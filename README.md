@@ -17,7 +17,7 @@ Paper Monospace Swiss theme family (Light, Dark, Auto) for [Forgejo](https://for
 
 </div>
 
-Warm paper by day (`#fdfcfb`), slate night by night (`#202530`), `1px` hairline structure, and mixed-script monospace typography inspired by [Chipaper](https://github.com/chius-me/chipaper) and [swiss-paper-jellyfin](https://github.com/chius-me/swiss-paper-jellyfin).
+Warm paper by day (`#fdfcfb`), slate night by night (`#202530`), `1px` hairline structure, and mixed-script monospace typography.
 
 ## Preview
 
@@ -87,7 +87,6 @@ Built stylesheets start with `@import url('https://fonts.googleapis.com/css2?fam
 ## Credits
 
 - Built against Forgejo 17's `theme-forgejo-light.css` and `theme-forgejo-dark.css` custom property interface.
-- Palette, typography, and editorial conventions adapted from [Chipaper](https://github.com/chius-me/chipaper) and [swiss-paper-jellyfin](https://github.com/chius-me/swiss-paper-jellyfin).
 - Multi-file theme layout inspired by [Taylor/forgejo-theme-dracula](https://forge.axfive.net/Taylor/forgejo-theme-dracula).
 
 ## License

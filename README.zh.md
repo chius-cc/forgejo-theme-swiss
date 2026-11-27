@@ -17,7 +17,7 @@
 
 </div>
 
-白天是暖纸白（`#fdfcfb`），夜晚是蓝灰夜色（`#202530`），配合 `1px` 细线秩序与中英混排等宽字体，设计语言沿用自 [Chipaper](https://github.com/chius-me/chipaper) 与 [swiss-paper-jellyfin](https://github.com/chius-me/swiss-paper-jellyfin)。
+白天是暖纸白（`#fdfcfb`），夜晚是蓝灰夜色（`#202530`），配合 `1px` 细线秩序与中英混排等宽字体。
 
 ## 效果预览
 
@@ -87,7 +87,6 @@ node scripts/build.mjs
 ## 致谢
 
 - 变量体系对齐 Forgejo 17 内置 `theme-forgejo-light.css` 与 `theme-forgejo-dark.css`。
-- 配色与版式理念源自 [Chipaper](https://github.com/chius-me/chipaper) 与 [swiss-paper-jellyfin](https://github.com/chius-me/swiss-paper-jellyfin)。
 - 多文件自动切换组织方式参考自 [Taylor/forgejo-theme-dracula](https://forge.axfive.net/Taylor/forgejo-theme-dracula)。
 
 ## 许可证
