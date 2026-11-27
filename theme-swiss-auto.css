@@ -1,0 +1,7 @@
+/*!
+ * Swiss Auto — Paper Monospace Swiss Theme for Forgejo 17.x
+ * Automatically switches between Swiss Light and Swiss Dark via prefers-color-scheme.
+ * Requires theme-swiss-light.css and theme-swiss-dark.css in the same directory.
+ */
+@import "./theme-swiss-light.css";
+@import "./theme-swiss-dark.css" (prefers-color-scheme: dark);

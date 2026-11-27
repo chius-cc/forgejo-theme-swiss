@@ -1,0 +1,1292 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;700&display=swap');
+
+/*!
+ * Swiss Dark (Slate) — Paper Monospace Swiss Theme for Forgejo 17.x
+ * Aesthetic: Slate night (#202530), warm apricot (#eab38b), light mist (#e1e5ed)
+ * License: MIT (https://github.com/chius-me/forgejo-theme-swiss)
+ */
+
+/* Swiss Slate (Dark) — Slate Night Monospace Tokens for Forgejo 17.x */
+
+:root {
+  color-scheme: dark;
+  --is-dark-theme: true;
+
+  /* Core Swiss Slate Palette */
+  --swiss-bg: #202530;
+  --swiss-text: #e1e5ed;
+  --swiss-muted: #a4adbb;
+  --swiss-muted-on-soft: #b3bcc9;
+  --swiss-accent: #eab38b;
+  --swiss-accent-hover: #ffd1ad;
+  --swiss-accent-active: #d89b6e;
+  --swiss-primary-contrast: #202530;
+  --swiss-mark: #eab38b;
+  --swiss-line: #3c4350;
+  --swiss-border: #6d7687;
+  --swiss-border-hover: #909aad;
+  --swiss-soft: #2a303c;
+  --swiss-soft-hover: #333a48;
+  --swiss-code-bg: #252c38;
+  --swiss-scrollbar-thumb: #7b8597;
+  --swiss-scrollbar-track: #2a303c;
+
+  /* Syntax Tokens (on --swiss-code-bg #252c38, WCAG AA >= 4.5:1) */
+  --syntax-fg: #e1e5ed;
+  --syntax-comment: #919bae;
+  --syntax-keyword: #eab38b;
+  --syntax-string: #95cfa8;
+  --syntax-number: #e6c67c;
+  --syntax-function: #8ec2dc;
+  --syntax-type: #7bc5c0;
+  --syntax-attr: #c7b0e2;
+  --syntax-operator: #bcc5d3;
+  --syntax-regex: #e59382;
+  --syntax-inserted-fg: #a6dfc0;
+  --syntax-inserted-bg: #1f362c;
+  --syntax-deleted-fg: #f0a89e;
+  --syntax-deleted-bg: #3e252a;
+  --syntax-highlight-bg: #313948;
+
+  /* Slate Night Steel Ramp */
+  --steel-900: #161a22;
+  --steel-850: #1b2029;
+  --steel-800: #202530;
+  --steel-750: #252c38;
+  --steel-700: #2a303c;
+  --steel-650: #333a48;
+  --steel-600: #3c4350;
+  --steel-550: #495262;
+  --steel-500: #596375;
+  --steel-450: #6d7687;
+  --steel-400: #7f899b;
+  --steel-350: #919bae;
+  --steel-300: #a4adbb;
+  --steel-250: #b3bcc9;
+  --steel-200: #c5cdd8;
+  --steel-150: #d5dce5;
+  --steel-100: #e1e5ed;
+
+  /* Zinc ramp compatibility aliases */
+  --zinc-50: #e1e5ed;
+  --zinc-100: #d5dce5;
+  --zinc-150: #c5cdd8;
+  --zinc-200: #b3bcc9;
+  --zinc-250: #a4adbb;
+  --zinc-300: #919bae;
+  --zinc-350: #7f899b;
+  --zinc-400: #6d7687;
+  --zinc-450: #596375;
+  --zinc-500: #495262;
+  --zinc-550: #3c4350;
+  --zinc-600: #333a48;
+  --zinc-650: #2a303c;
+  --zinc-700: #252c38;
+  --zinc-750: #222834;
+  --zinc-800: #202530;
+  --zinc-850: #1b2029;
+  --zinc-900: #161a22;
+
+  /* Primary — Warm Apricot */
+  --color-primary: var(--swiss-accent);
+  --color-primary-contrast: var(--swiss-primary-contrast);
+  --color-primary-dark-1: #ffd1ad;
+  --color-primary-dark-2: #ffd1ad;
+  --color-primary-dark-3: #ffe2cc;
+  --color-primary-dark-4: #ffe2cc;
+  --color-primary-light-1: #ffd1ad;
+  --color-primary-light-2: #d89b6e;
+  --color-primary-light-3: #b97c50;
+  --color-primary-light-4: #8d5c38;
+  --color-primary-light-5: #5e3d26;
+  --color-primary-light-6: #3d2a1e;
+  --color-primary-light-7: #2c2019;
+  --color-primary-alpha-10: #eab38b19;
+  --color-primary-alpha-20: #eab38b33;
+  --color-primary-alpha-30: #eab38b4b;
+  --color-primary-alpha-40: #eab38b66;
+  --color-primary-alpha-50: #eab38b80;
+  --color-primary-alpha-60: #eab38b99;
+  --color-primary-alpha-70: #eab38bb3;
+  --color-primary-alpha-80: #eab38bcc;
+  --color-primary-alpha-90: #eab38be1;
+  --color-primary-hover: var(--swiss-accent-hover);
+  --color-primary-active: var(--swiss-accent-active);
+
+  /* Secondary — Slate Night Neutrals */
+  --color-secondary: var(--swiss-line);
+  --color-secondary-dark-1: var(--steel-550);
+  --color-secondary-dark-2: var(--steel-500);
+  --color-secondary-dark-3: var(--steel-450);
+  --color-secondary-dark-4: var(--steel-400);
+  --color-secondary-dark-5: var(--steel-350);
+  --color-secondary-dark-6: var(--steel-300);
+  --color-secondary-dark-7: var(--steel-250);
+  --color-secondary-dark-8: var(--steel-200);
+  --color-secondary-dark-9: var(--steel-150);
+  --color-secondary-dark-10: var(--steel-100);
+  --color-secondary-dark-11: var(--steel-100);
+  --color-secondary-dark-12: var(--steel-100);
+  --color-secondary-dark-13: var(--steel-100);
+  --color-secondary-light-1: var(--steel-650);
+  --color-secondary-light-2: var(--steel-700);
+  --color-secondary-light-3: var(--steel-750);
+  --color-secondary-light-4: var(--steel-800);
+  --color-secondary-alpha-10: #3c435022;
+  --color-secondary-alpha-20: #3c435038;
+  --color-secondary-alpha-30: #3c435050;
+  --color-secondary-alpha-40: #3c435068;
+  --color-secondary-alpha-50: #3c435080;
+  --color-secondary-alpha-60: #3c435099;
+  --color-secondary-alpha-70: #3c4350b3;
+  --color-secondary-alpha-80: #3c4350cc;
+  --color-secondary-alpha-90: #3c4350e6;
+  --color-secondary-hover: var(--swiss-soft-hover);
+  --color-secondary-active: var(--steel-550);
+
+  /* Actions / Terminal Console */
+  --color-console-fg: #e1e5ed;
+  --color-console-fg-subtle: #a4adbb;
+  --color-console-bg: #181c24;
+  --color-console-border: #3c4350;
+  --color-console-hover-bg: #ffffff14;
+  --color-console-active-bg: #333a48;
+  --color-console-menu-bg: #2a303c;
+  --color-console-menu-border: #495262;
+
+  /* Editorial Semantic Palette (Slate Night) */
+  --color-red: #b84e3b;
+  --color-orange: #c77743;
+  --color-yellow: #b38c34;
+  --color-olive: #7f8e3d;
+  --color-green: #2d7a53;
+  --color-teal: #277e78;
+  --color-blue: #3f7a99;
+  --color-violet: #7f629e;
+  --color-purple: #7f629e;
+  --color-pink: #a85474;
+  --color-brown: #8e6448;
+  --color-grey: var(--steel-500);
+  --color-black: #161a22;
+
+  --color-red-light: #e07b69;
+  --color-orange-light: #eab38b;
+  --color-yellow-light: #e3c16f;
+  --color-olive-light: #adbe6a;
+  --color-green-light: #72ba8e;
+  --color-teal-light: #6ebcb5;
+  --color-purple-light: #b89dd6;
+  --color-pink-light: #db8fab;
+  --color-brown-light: #c19a7e;
+  --color-grey-light: var(--steel-300);
+  --color-black-light: #2a303c;
+
+  --color-red-dark-1: #9e4130;
+  --color-orange-dark-1: #ac6435;
+  --color-yellow-dark-1: #967328;
+  --color-olive-dark-1: #6a7730;
+  --color-green-dark-1: #246444;
+  --color-teal-dark-1: #1f6762;
+  --color-violet-dark-1: #6b5187;
+  --color-purple-dark-1: #6b5187;
+  --color-pink-dark-1: #8e4460;
+  --color-brown-dark-1: #76523a;
+  --color-black-dark-1: #11151b;
+
+  --color-red-dark-2: #853526;
+  --color-orange-dark-2: #8f522a;
+  --color-yellow-dark-2: #7a5d1e;
+  --color-olive-dark-2: #566124;
+  --color-green-dark-2: #1c4f35;
+  --color-teal-dark-2: #18514d;
+  --color-violet-dark-2: #57416f;
+  --color-purple-dark-2: #57416f;
+  --color-pink-dark-2: #74364e;
+  --color-brown-dark-2: #5f422e;
+  --color-black-dark-2: #0d1016;
+
+  /* ANSI Console Colors */
+  --color-ansi-black: #202530;
+  --color-ansi-red: #d97362;
+  --color-ansi-green: #7ab88f;
+  --color-ansi-yellow: #dfbc6c;
+  --color-ansi-blue: #78acc7;
+  --color-ansi-magenta: #c786a6;
+  --color-ansi-cyan: #6cb7b1;
+  --color-ansi-white: var(--color-console-fg-subtle);
+  --color-ansi-bright-black: #535c6d;
+  --color-ansi-bright-red: #e58c7d;
+  --color-ansi-bright-green: #95cfa8;
+  --color-ansi-bright-yellow: #ecd18e;
+  --color-ansi-bright-blue: #96c3db;
+  --color-ansi-bright-magenta: #d9a0bc;
+  --color-ansi-bright-cyan: #89cbc6;
+  --color-ansi-bright-white: var(--color-console-fg);
+
+  --color-gold: #c9a753;
+  --color-white: #fdfcfb;
+  --color-pure-black: #0f131a;
+
+  /* Diff Colors */
+  --color-diff-removed-word-bg: #693439;
+  --color-diff-added-word-bg: #2a5543;
+  --color-diff-removed-row-bg: #382328;
+  --color-diff-moved-row-bg: #3d3422;
+  --color-diff-added-row-bg: #1e332b;
+  --color-diff-removed-row-border: #693439;
+  --color-diff-moved-row-border: #7d6738;
+  --color-diff-added-row-border: #2f5e4b;
+  --color-diff-inactive: var(--swiss-soft);
+
+  /* Alert Banners */
+  --color-error-border: #7a3b39;
+  --color-error-bg: #3c2225;
+  --color-error-bg-active: #4f2c30;
+  --color-error-bg-hover: #47272b;
+  --color-error-text: #f6cdc7;
+
+  --color-success-border: #2c6449;
+  --color-success-bg: #1d352b;
+  --color-success-text: #bce5cb;
+
+  --color-warning-border: #7d6738;
+  --color-warning-bg: #3b3120;
+  --color-warning-text: #f2da99;
+
+  --color-info-border: #3a607a;
+  --color-info-bg: #223244;
+  --color-info-text: #cce0ec;
+
+  /* Badges */
+  --color-red-badge: #e07b69;
+  --color-red-badge-bg: #e07b6926;
+  --color-red-badge-hover-bg: #e07b693d;
+  --color-green-badge: #72ba8e;
+  --color-green-badge-bg: #72ba8e26;
+  --color-green-badge-hover-bg: #72ba8e3d;
+  --color-yellow-badge: #e3c16f;
+  --color-yellow-badge-bg: #e3c16f26;
+  --color-yellow-badge-hover-bg: #e3c16f3d;
+  --color-orange-badge: #eab38b;
+  --color-orange-badge-bg: #eab38b26;
+  --color-orange-badge-hover-bg: #eab38b3d;
+
+  /* Forgejo Dynamic OKLCH Accents */
+  --thin-lightness: 0.72;
+  --regular-chroma: 0.14;
+  --hue-green: 152deg;
+  --hue-red: 28deg;
+  --hue-purple: 298deg;
+  --hue-violet: 293deg;
+  --hue-orange: 42deg;
+  --hue-blue: 228deg;
+  --thin-lightness-highlight: 0.78;
+  --color-thin-red-highlight: oklch(var(--thin-lightness-highlight) var(--regular-chroma) 28deg);
+  --bg-lightness: 0.26;
+  --bg-chroma: 0.05;
+  --color-danger-bg: oklch(var(--bg-lightness) var(--bg-chroma) 28deg);
+
+  /* Surfaces & Typography Mapping */
+  --color-body: var(--swiss-bg);
+  --color-box-header: var(--swiss-soft);
+  --color-box-body: var(--swiss-bg);
+  --color-box-body-highlight: var(--swiss-soft-hover);
+  --color-text-dark: #f0f3f8;
+  --color-text: var(--swiss-text);
+  --color-text-light: var(--steel-150);
+  --color-text-light-1: var(--swiss-muted-on-soft);
+  --color-text-light-2: var(--swiss-muted-on-soft);
+  --color-text-light-3: var(--swiss-muted-on-soft);
+  --color-footer: var(--swiss-bg);
+  --color-timeline: var(--swiss-line);
+  --color-input-text: var(--swiss-text);
+  --color-input-background: var(--swiss-bg);
+  --color-input-toggle-background: var(--swiss-soft);
+  --color-input-border: var(--swiss-border);
+  --color-input-border-hover: var(--swiss-border-hover);
+  --color-header-wrapper: var(--swiss-bg);
+  --color-header-wrapper-transparent: #20253000;
+  --color-light: #00000028;
+  --color-light-mimic-enabled: rgba(0, 0, 0, calc(40 / 255 * 222 / 255 / var(--opacity-disabled)));
+  --color-light-border: #ffffff28;
+  --color-hover: var(--swiss-soft);
+  --color-active: var(--swiss-soft-hover);
+  --color-menu: var(--swiss-bg);
+  --color-card: var(--swiss-bg);
+  --fancy-card-bg: var(--swiss-code-bg);
+  --fancy-card-border: var(--swiss-line);
+  --color-markup-table-row: #ffffff05;
+  --color-markup-code-block: var(--swiss-code-bg);
+  --color-markup-code-inline: var(--swiss-soft);
+  --color-button: var(--swiss-soft);
+  --color-code-bg: var(--swiss-code-bg);
+  --color-shadow: #0d10168c;
+  --color-secondary-bg: var(--swiss-soft);
+  --color-text-focus: #f0f3f8;
+  --color-expand-button: var(--swiss-soft);
+  --color-placeholder-text: var(--swiss-muted-on-soft);
+  --color-editor-line-highlight: var(--swiss-soft);
+  --color-project-board-bg: var(--swiss-code-bg);
+  --color-project-board-dark-label: var(--swiss-muted-on-soft);
+  --color-caret: var(--swiss-text);
+  --color-reaction-bg: #ffffff10;
+  --color-reaction-active-bg: var(--color-primary-alpha-30);
+  --color-reaction-hover-bg: var(--color-primary-alpha-40);
+  --color-tooltip-text: #202530;
+  --color-tooltip-bg: #e1e5edf5;
+  --color-nav-bg: var(--swiss-bg);
+  --color-nav-hover-bg: var(--swiss-soft);
+  --color-secondary-nav-bg: var(--swiss-bg);
+  --color-label-text: var(--swiss-text);
+  --color-label-bg: var(--swiss-soft);
+  --color-label-hover-bg: var(--swiss-soft-hover);
+  --color-label-active-bg: var(--swiss-line);
+  --color-label-bg-alt: var(--swiss-soft-hover);
+  --color-accent: var(--swiss-accent);
+  --color-small-accent: #3d2a1e;
+  --color-highlight-fg: var(--swiss-accent-hover);
+  --color-highlight-bg: var(--color-primary-alpha-20);
+  --color-overlay-backdrop: #0b0e14b8;
+  --color-selection-bg: var(--swiss-accent);
+  --color-selection-fg: var(--swiss-primary-contrast);
+  --checkerboard-color-1: #2a303c;
+  --checkerboard-color-2: #202530;
+  --color-indicator-offline: #a4adbb;
+  --color-indicator-offline-20: #a4adbb22;
+  --color-indicator-idle: #72ba8e;
+  --color-indicator-idle-20: #72ba8e22;
+  --color-indicator-active: #78acc7;
+  --color-indicator-active-20: #78acc722;
+
+  accent-color: var(--swiss-accent);
+}
+
+/* Invert black monochrome emojis on dark canvas */
+.emoji[aria-label="check mark"],
+.emoji[aria-label="currency exchange"],
+.emoji[aria-label="TOP arrow"],
+.emoji[aria-label="END arrow"],
+.emoji[aria-label="ON! arrow"],
+.emoji[aria-label="SOON arrow"],
+.emoji[aria-label="heavy dollar sign"],
+.emoji[aria-label="copyright"],
+.emoji[aria-label="registered"],
+.emoji[aria-label="trade mark"],
+.emoji[aria-label="multiply"],
+.emoji[aria-label="plus"],
+.emoji[aria-label="minus"],
+.emoji[aria-label="divide"],
+.emoji[aria-label="curly loop"],
+.emoji[aria-label="double curly loop"],
+.emoji[aria-label="wavy dash"],
+.emoji[aria-label="paw prints"],
+.emoji[aria-label="musical note"],
+.emoji[aria-label="musical notes"] {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+i.grey.icon.icon.icon.icon {
+  color: var(--steel-350) !important;
+}
+
+/* Dark-mode markdown media visibility */
+.markup [src$="#gh-light-mode-only"],
+.markup [src$="#light-mode-only"],
+.markup [href$="#gh-light-mode-only"],
+.markup [href$="#light-mode-only"] {
+  display: none;
+}
+
+.markup [src$="#gh-dark-mode-only"],
+.markup [src$="#dark-mode-only"],
+.markup [href$="#gh-dark-mode-only"],
+.markup [href$="#dark-mode-only"] {
+  display: unset;
+}
+
+svg.brand-color path,
+svg.brand-color rect {
+  fill: var(--brand-dark-fill, revert-rule);
+}
+
+.ui.red.label.notification_count,
+.ui.primary.label,
+.ui.primary.labels .label {
+  background-color: var(--swiss-accent) !important;
+  color: var(--swiss-primary-contrast) !important;
+}
+
+.ui.labeled.icon.buttons > .button > .icon,
+.ui.labeled.icon.button > .icon {
+  background-color: var(--color-light) !important;
+}
+
+.ui.basic.labels .primary.label,
+.ui.ui.ui.basic.primary.label {
+  color: var(--swiss-accent) !important;
+  border-color: var(--swiss-accent) !important;
+}
+
+.ui.yellow.label.pending-label {
+  background: var(--color-warning-bg) !important;
+  color: var(--color-warning-text) !important;
+}
+
+.ui.basic.red.button {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
+
+.ui.basic.red.button:hover,
+.ui.basic.red.button:focus {
+  background-color: var(--color-red-dark-1);
+  color: var(--color-white);
+}
+
+.ui.basic.red.button:active {
+  background-color: var(--color-red-dark-2);
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   Paper Monospace Swiss Core Rules for Forgejo 17.x
+   Shared by theme-swiss-light.css and theme-swiss-dark.css
+   ========================================================================== */
+
+:root {
+  --swiss-font: "Google Sans Code", "Sarasa Mono SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace, var(--fonts-emoji);
+  --swiss-dur: 150ms;
+  --swiss-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Override Forgejo font & radius system tokens */
+  --fonts-monospace: var(--swiss-font);
+  --fonts-proportional: var(--swiss-font);
+  --fonts-regular: var(--swiss-font);
+  --fonts-override: var(--swiss-font);
+  --fonts-default-override-ja: var(--swiss-font);
+  --fonts-default-override-zh-cn: var(--swiss-font);
+  --fonts-default-override-zh-tw: var(--swiss-font);
+  --fonts-default-override-zh-hk: var(--swiss-font);
+  --fonts-default-override-ko: var(--swiss-font);
+
+  --border-radius: 4px;
+  --border-radius-medium: 4px;
+  --border-radius-large: 4px;
+
+  scrollbar-color: var(--swiss-scrollbar-thumb) var(--swiss-scrollbar-track);
+  scrollbar-width: thin;
+}
+
+/* Override Forgejo's :lang(...) proportional font locks */
+:root :lang(ja),
+:root :lang(zh-CN),
+:root :lang(zh-TW),
+:root :lang(zh-HK),
+:root :lang(ko) {
+  --fonts-override: var(--swiss-font);
+}
+
+/* ==========================================================================
+   1. Base Typography, Selection & Scrollbars
+   ========================================================================== */
+
+html {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  font-family: var(--swiss-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  font-family: var(--swiss-font);
+  line-break: strict;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--swiss-font);
+}
+
+::selection {
+  background: var(--swiss-accent);
+  color: var(--swiss-primary-contrast);
+}
+
+::-moz-selection {
+  background: var(--swiss-accent);
+  color: var(--swiss-primary-contrast);
+}
+
+/* Scrollbar styling for scrollable panels and legacy WebKit fallback */
+pre,
+.code-inner,
+.CodeMirror-scroll,
+.ui.table,
+.markup pre {
+  scrollbar-color: var(--swiss-scrollbar-thumb) var(--swiss-scrollbar-track);
+  scrollbar-width: thin;
+}
+
+@supports not (scrollbar-color: auto) {
+  :root,
+  pre,
+  .code-inner,
+  .CodeMirror-scroll,
+  .ui.table,
+  .markup pre {
+    scrollbar-width: auto;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--swiss-scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--swiss-scrollbar-thumb);
+    border-radius: 4px;
+  }
+}
+
+/* Tabular alignment for hashes, line numbers, metrics & timestamps */
+.sha,
+.shortsha,
+.lines-num,
+.line-num,
+.file-size,
+relative-time,
+.ui.label,
+.issue .index,
+.repo-count,
+.page-footer strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   2. Links & Instant Dashed Focus Ring
+   ========================================================================== */
+
+a {
+  color: var(--swiss-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color var(--swiss-dur) var(--swiss-ease);
+}
+
+a:hover {
+  color: var(--swiss-accent-hover);
+}
+
+:focus-visible {
+  outline: 2px dashed var(--swiss-accent) !important;
+  outline-offset: 3px !important;
+  transition: none !important;
+}
+
+#navbar .item:focus-visible,
+.ui.menu .item:focus-visible,
+.ui.dropdown .menu > .item:focus-visible,
+.ui.buttons .button:focus-visible,
+.ui.pagination.menu .item:focus-visible {
+  outline-offset: -3px !important;
+}
+
+/* ==========================================================================
+   3. Flat Paper Geometry & Hairline Dividers (No Shadow Bloat)
+   ========================================================================== */
+
+.ui.menu,
+.ui.segment,
+.ui.segments,
+.ui.card,
+.ui.cards > .card,
+.ui.table,
+.ui.attached.header,
+.ui.top.attached.header,
+.ui.bottom.attached.segment,
+.ui.message,
+.ui.button,
+.ui.buttons,
+.fancy-card {
+  box-shadow: none !important;
+}
+
+.ui.menu,
+.ui.segment,
+.ui.segments,
+.ui.card,
+.ui.cards > .card,
+.ui.table,
+.ui.message,
+.fancy-card {
+  border-color: var(--swiss-line);
+  border-radius: 4px;
+}
+
+.ui.top.attached.header {
+  border-color: var(--swiss-line);
+  background: var(--swiss-soft);
+  color: var(--swiss-text);
+  border-radius: 4px 4px 0 0;
+}
+
+.ui.attached.segment,
+.ui.bottom.attached.segment,
+.ui.attached.table {
+  border-color: var(--swiss-line);
+  background: var(--swiss-bg);
+}
+
+/* Floating overlays keep crisp hairline border + restrained depth */
+.ui.dropdown .menu,
+.ui.modal,
+.tippy-box {
+  border: 1px solid var(--swiss-border) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 6px 18px var(--color-shadow) !important;
+}
+
+.ui.dropdown .menu {
+  background: var(--swiss-bg) !important;
+}
+
+/* ==========================================================================
+   4. Top Navigation, Repo Secondary Nav & Footer
+   ========================================================================== */
+
+#navbar {
+  background: var(--swiss-bg);
+  border-bottom: 1px solid var(--swiss-line);
+  box-shadow: none;
+  padding-inline: 16px;
+}
+
+#navbar .item {
+  color: var(--swiss-text);
+  border-radius: 4px;
+  transition: color var(--swiss-dur) var(--swiss-ease), background-color var(--swiss-dur) var(--swiss-ease);
+}
+
+#navbar a.item:not(#navbar-logo):hover,
+#navbar a.item.active:not(#navbar-logo) {
+  background: transparent;
+  color: var(--swiss-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--swiss-accent);
+  text-underline-offset: 0.45em;
+}
+
+#navbar .item:hover {
+  background: var(--swiss-soft);
+  color: var(--swiss-accent);
+}
+
+#navbar a.item:not(#navbar-logo):hover {
+  background: transparent;
+}
+
+.secondary-nav {
+  background: var(--swiss-bg) !important;
+  border-bottom: 1px solid var(--swiss-line);
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 1px solid var(--swiss-line);
+}
+
+.ui.secondary.pointing.menu .item {
+  color: var(--swiss-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color var(--swiss-dur) var(--swiss-ease), border-color var(--swiss-dur) var(--swiss-ease);
+}
+
+.ui.secondary.pointing.menu .item:hover {
+  color: var(--swiss-text);
+  border-bottom-color: var(--swiss-border);
+}
+
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover {
+  color: var(--swiss-text);
+  font-weight: 700;
+  border-bottom-color: var(--swiss-accent);
+}
+
+.ui.secondary.vertical.menu {
+  border-radius: 4px !important;
+  overflow: hidden;
+  border: 1px solid var(--swiss-line);
+  background: var(--swiss-bg);
+}
+
+.ui.secondary.vertical.menu .item {
+  color: var(--swiss-text);
+  border-radius: 0;
+}
+
+.ui.secondary.vertical.menu .active.item {
+  background: var(--swiss-soft) !important;
+  color: var(--swiss-accent) !important;
+  font-weight: 700;
+}
+
+.page-footer {
+  background: var(--swiss-bg);
+  border-top: 1px solid var(--swiss-line);
+  color: var(--swiss-muted);
+  font-size: 0.8125rem;
+}
+
+.page-footer a {
+  color: var(--swiss-muted);
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  color: var(--swiss-accent);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   5. Buttons, Inputs & Labels (Zero Displacement, Accessible Contrast)
+   ========================================================================== */
+
+.ui.button {
+  background: var(--swiss-soft);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+  border-radius: 4px;
+  font-weight: 500;
+  transition:
+    color var(--swiss-dur) var(--swiss-ease),
+    background-color var(--swiss-dur) var(--swiss-ease),
+    border-color var(--swiss-dur) var(--swiss-ease);
+}
+
+.ui.button:hover {
+  background: var(--swiss-bg);
+  color: var(--swiss-accent);
+  border-color: var(--swiss-accent);
+  transform: none;
+}
+
+.ui.basic.button,
+.ui.basic.buttons .button {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+  box-shadow: none !important;
+}
+
+.ui.basic.button:hover,
+.ui.basic.buttons .button:hover {
+  background: var(--swiss-soft);
+  color: var(--swiss-accent);
+  border-color: var(--swiss-accent);
+}
+
+.ui.basic.buttons {
+  border: 1px solid var(--swiss-border);
+  border-radius: 4px;
+}
+
+.ui.basic.buttons .button {
+  border: 0;
+}
+
+.ui.basic.buttons .button + .button {
+  border-inline-start: 1px solid var(--swiss-line);
+}
+
+.ui.buttons > .button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.ui.buttons > .button:first-child:not(:last-child) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.ui.buttons > .button:last-child:not(:first-child) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.ui.labeled.button > .button {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.ui.labeled.button > .label {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-inline-start: 0 !important;
+  border-color: var(--swiss-border);
+}
+
+.ui.action.input > *:not(:first-child):not(:last-child),
+.ui.action.input > *:not(:first-child):not(:last-child) > input {
+  border-radius: 0;
+}
+
+.ui.action.input > *:first-child:not(:last-child),
+.ui.action.input > *:first-child:not(:last-child) > input {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.ui.action.input > *:last-child:not(:first-child),
+.ui.action.input > *:last-child:not(:first-child) > input {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.ui.action.input > .button + .button,
+.ui.action.input > .button + .dropdown,
+.ui.action.input > input + .button,
+.ui.action.input > input + .dropdown {
+  border-inline-start-width: 0;
+}
+
+.ui.basic.primary.button.item {
+  background-color: var(--swiss-soft-hover) !important;
+  color: var(--swiss-text) !important;
+  box-shadow: none !important;
+}
+
+.ui.primary.button,
+.ui.primary.buttons .button {
+  background-color: var(--swiss-accent);
+  color: var(--swiss-primary-contrast);
+  border: 1px solid var(--swiss-accent);
+}
+
+.ui.primary.button:hover,
+.ui.primary.buttons .button:hover {
+  background-color: var(--swiss-accent-hover);
+  color: var(--swiss-primary-contrast);
+  border-color: var(--swiss-accent-hover);
+}
+
+.ui.primary.button:active,
+.ui.primary.buttons .button:active {
+  background-color: var(--swiss-accent-active);
+  color: var(--swiss-primary-contrast);
+  border-color: var(--swiss-accent-active);
+}
+
+.ui.input input,
+.ui.form input:not([type]),
+.ui.form input[type="text"],
+.ui.form input[type="email"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="url"],
+.ui.form select,
+.ui.form textarea,
+.ui.selection.dropdown {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+  border-radius: 4px;
+  box-shadow: none;
+  transition: border-color var(--swiss-dur) var(--swiss-ease), background-color var(--swiss-dur) var(--swiss-ease);
+}
+
+.ui.input input:hover,
+.ui.form input:hover,
+.ui.form select:hover,
+.ui.form textarea:hover,
+.ui.selection.dropdown:hover {
+  border-color: var(--swiss-border-hover);
+}
+
+.ui.input input:focus,
+.ui.form input:focus,
+.ui.form select:focus,
+.ui.form textarea:focus,
+.ui.selection.dropdown.active {
+  border-color: var(--swiss-accent);
+  box-shadow: none;
+}
+
+/* Restrained flat badges & labels */
+.ui.label {
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.ui.basic.label {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+}
+
+#review-box .review-comments-counter {
+  background-color: var(--color-label-bg) !important;
+  color: var(--swiss-text) !important;
+  margin-inline-start: 0.5em;
+}
+
+/* ==========================================================================
+   6. Repository File List, Headers, Pagination & Diffs
+   ========================================================================== */
+
+.repo-header .repo-title {
+  letter-spacing: -0.025em;
+}
+
+#repo-files-table {
+  border: 1px solid var(--swiss-line);
+  border-radius: 4px;
+  background: var(--swiss-bg);
+}
+
+#repo-files-table tr.commit-list {
+  background: var(--swiss-soft);
+}
+
+#repo-files-table tbody tr {
+  transition: background-color var(--swiss-dur) var(--swiss-ease);
+}
+
+#repo-files-table tbody tr:not(.commit-list):hover {
+  background: var(--swiss-soft);
+}
+
+.ui.pagination.menu {
+  border: 1px solid var(--swiss-border);
+  background: var(--swiss-bg);
+}
+
+.ui.pagination.menu .active.item {
+  background: var(--swiss-soft);
+  color: var(--swiss-accent);
+  font-weight: 700;
+}
+
+.repository .diff-file-box .file-header {
+  background: var(--swiss-soft);
+  border-color: var(--swiss-line);
+}
+
+.repository .file-view .lines-num {
+  background: var(--swiss-soft);
+  color: var(--swiss-muted-on-soft);
+  border-inline-end: 1px solid var(--swiss-line);
+}
+
+.repository .file-view .lines-code,
+.repository .code-view {
+  background: var(--swiss-code-bg);
+}
+
+/* ==========================================================================
+   7. Markdown Prose (.markup) — Chipaper Editorial Rules
+   ========================================================================== */
+
+.markup {
+  color: var(--swiss-text);
+  line-height: 1.85;
+  line-break: strict;
+}
+
+.markup h1,
+.markup h2,
+.markup h3,
+.markup h4 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  border-bottom-color: var(--swiss-line);
+}
+
+.markup a {
+  text-decoration-style: dashed;
+  overflow-wrap: anywhere;
+}
+
+.markup blockquote:not(.attention-header) {
+  border-inline-start: 3px solid var(--swiss-mark);
+  color: var(--swiss-muted);
+  padding: 0.15rem 0 0.15rem 1.15rem;
+}
+
+.markup li::marker {
+  color: var(--swiss-mark);
+}
+
+.markup hr {
+  height: 0;
+  border: 0;
+  border-top: 1px dashed var(--swiss-line);
+  background: transparent;
+  margin-block: 1.75rem;
+}
+
+.markup code,
+.markup tt {
+  background: var(--swiss-soft);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-line);
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+  font-family: var(--swiss-font);
+}
+
+.markup pre {
+  background: var(--swiss-code-bg);
+  border: 1px solid var(--swiss-line);
+  border-radius: 4px;
+  font-family: var(--swiss-font);
+}
+
+.markup pre > code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.markup table th {
+  background: var(--swiss-soft);
+}
+
+.markup table th,
+.markup table td {
+  border-color: var(--swiss-line);
+}
+
+.markup img {
+  border-radius: 3px;
+}
+
+strong.attention-important,
+svg.attention-important {
+  color: var(--color-violet-light);
+}
+
+strong.attention-note,
+svg.attention-note {
+  color: var(--color-blue-light);
+}
+
+strong.attention-caution,
+svg.attention-caution {
+  color: var(--color-red-light);
+}
+
+/* ==========================================================================
+   8. Chroma Syntax Highlighting & CodeMirror Editor
+   ========================================================================== */
+
+.chroma {
+  color: var(--syntax-fg);
+}
+
+.chroma .hl {
+  background-color: var(--syntax-highlight-bg);
+}
+
+.chroma .bp { color: var(--syntax-attr); font-style: italic; }
+.chroma .c,
+.chroma .c1,
+.chroma .ch,
+.chroma .cm,
+.chroma .cs { color: var(--syntax-comment); font-style: italic; }
+.chroma .cp { color: var(--syntax-keyword); }
+.chroma .cpf { color: var(--syntax-string); }
+.chroma .dl { color: var(--syntax-string); }
+.chroma .gd { color: var(--syntax-deleted-fg); background-color: var(--syntax-deleted-bg); }
+.chroma .ge { color: var(--syntax-fg); font-style: italic; }
+.chroma .gh { color: var(--syntax-function); font-weight: 700; }
+.chroma .gi { color: var(--syntax-inserted-fg); background-color: var(--syntax-inserted-bg); }
+.chroma .gl { text-decoration: underline; }
+.chroma .go { color: var(--syntax-comment); }
+.chroma .gp { color: var(--syntax-muted, var(--syntax-comment)); }
+.chroma .gr { color: var(--syntax-deleted-fg); }
+.chroma .gs { color: var(--syntax-fg); font-weight: 700; }
+.chroma .gt { color: var(--syntax-deleted-fg); }
+.chroma .gu { color: var(--syntax-comment); font-weight: 700; }
+.chroma .il { color: var(--syntax-number); }
+.chroma .k,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr { color: var(--syntax-keyword); }
+.chroma .kc { color: var(--syntax-number); }
+.chroma .kt { color: var(--syntax-type); }
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .mo { color: var(--syntax-number); }
+.chroma .n { color: var(--syntax-fg); }
+.chroma .na { color: var(--syntax-attr); }
+.chroma .nb { color: var(--syntax-type); }
+.chroma .nc { color: var(--syntax-type); font-weight: 500; }
+.chroma .nd { color: var(--syntax-attr); }
+.chroma .ne { color: var(--syntax-keyword); }
+.chroma .nf,
+.chroma .fm { color: var(--syntax-function); }
+.chroma .ni { color: var(--syntax-attr); }
+.chroma .nl { color: var(--syntax-keyword); }
+.chroma .nn { color: var(--syntax-fg); }
+.chroma .no { color: var(--syntax-number); }
+.chroma .nt { color: var(--syntax-keyword); }
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm { color: var(--syntax-fg); }
+.chroma .nx { color: var(--syntax-fg); }
+.chroma .o,
+.chroma .ow { color: var(--syntax-operator); }
+.chroma .p { color: var(--syntax-fg); }
+.chroma .s,
+.chroma .s1,
+.chroma .s2,
+.chroma .sb,
+.chroma .sd,
+.chroma .sh,
+.chroma .sx { color: var(--syntax-string); }
+.chroma .sa { color: var(--syntax-keyword); }
+.chroma .sc { color: var(--syntax-number); }
+.chroma .se { color: var(--syntax-number); }
+.chroma .si { color: var(--syntax-number); }
+.chroma .sr { color: var(--syntax-regex); }
+.chroma .ss { color: var(--syntax-number); }
+.chroma .w { color: var(--syntax-comment); }
+.chroma .err { /* intentionally unstyled — matches Forgejo convention */ }
+
+/* CodeMirror Markdown / Code Editor */
+.CodeMirror.cm-s-default,
+.CodeMirror.cm-s-paper {
+  background: var(--swiss-code-bg);
+  color: var(--syntax-fg);
+  font-family: var(--swiss-font);
+}
+
+.CodeMirror.cm-s-default .cm-property,
+.CodeMirror.cm-s-paper .cm-property { color: var(--syntax-attr); }
+.CodeMirror.cm-s-default .cm-header,
+.CodeMirror.cm-s-paper .cm-header { color: var(--syntax-function); font-weight: 700; }
+.CodeMirror.cm-s-default .cm-quote,
+.CodeMirror.cm-s-paper .cm-quote { color: var(--syntax-comment); }
+.CodeMirror.cm-s-default .cm-keyword,
+.CodeMirror.cm-s-paper .cm-keyword { color: var(--syntax-keyword); }
+.CodeMirror.cm-s-default .cm-atom,
+.CodeMirror.cm-s-paper .cm-atom { color: var(--syntax-number); }
+.CodeMirror.cm-s-default .cm-number,
+.CodeMirror.cm-s-paper .cm-number { color: var(--syntax-number); }
+.CodeMirror.cm-s-default .cm-def,
+.CodeMirror.cm-s-paper .cm-def { color: var(--syntax-fg); }
+.CodeMirror.cm-s-default .cm-variable-2,
+.CodeMirror.cm-s-paper .cm-variable-2 { color: var(--syntax-type); }
+.CodeMirror.cm-s-default .cm-variable-3,
+.CodeMirror.cm-s-paper .cm-variable-3 { color: var(--syntax-string); }
+.CodeMirror.cm-s-default .cm-comment,
+.CodeMirror.cm-s-paper .cm-comment { color: var(--syntax-comment); font-style: italic; }
+.CodeMirror.cm-s-default .cm-string,
+.CodeMirror.cm-s-paper .cm-string { color: var(--syntax-string); }
+.CodeMirror.cm-s-default .cm-string-2,
+.CodeMirror.cm-s-paper .cm-string-2 { color: var(--syntax-number); }
+.CodeMirror.cm-s-default .cm-meta,
+.CodeMirror.cm-s-paper .cm-meta,
+.CodeMirror.cm-s-default .cm-qualifier,
+.CodeMirror.cm-s-paper .cm-qualifier { color: var(--syntax-keyword); }
+.CodeMirror.cm-s-default .cm-builtin,
+.CodeMirror.cm-s-paper .cm-builtin { color: var(--syntax-type); }
+.CodeMirror.cm-s-default .cm-bracket,
+.CodeMirror.cm-s-paper .cm-bracket { color: var(--syntax-fg); }
+.CodeMirror.cm-s-default .cm-tag,
+.CodeMirror.cm-s-paper .cm-tag { color: var(--syntax-keyword); }
+.CodeMirror.cm-s-default .cm-attribute,
+.CodeMirror.cm-s-paper .cm-attribute { color: var(--syntax-attr); }
+.CodeMirror.cm-s-default .cm-hr,
+.CodeMirror.cm-s-paper .cm-hr { color: var(--syntax-comment); }
+.CodeMirror.cm-s-default .cm-url,
+.CodeMirror.cm-s-paper .cm-url { color: var(--syntax-function); }
+.CodeMirror.cm-s-default .cm-link,
+.CodeMirror.cm-s-paper .cm-link { color: var(--syntax-function); text-decoration: underline; }
+.CodeMirror.cm-s-default .cm-error,
+.CodeMirror.cm-s-paper .cm-error { color: var(--syntax-deleted-fg); }
+
+/* ==========================================================================
+   9. Accessibility Modes, Reduced Motion & Print
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+  #navbar .item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .ui.pagination.menu .item {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px dashed Highlight !important;
+  }
+
+  .ui.button,
+  .ui.input input,
+  .ui.form select,
+  .ui.form textarea,
+  .ui.menu,
+  .ui.segment,
+  .ui.table {
+    border-color: ButtonBorder;
+  }
+}
+
+@media print {
+  #navbar,
+  .page-footer,
+  .repo-buttons,
+  .ui.secondary.pointing.menu,
+  .issue-list-toolbar {
+    display: none !important;
+  }
+
+  :root {
+    --swiss-bg: #ffffff;
+    --swiss-text: #000000;
+    --swiss-muted: #444444;
+    --swiss-code-bg: #f5f5f5;
+    --swiss-accent: #000000;
+    --color-body: #ffffff;
+    --color-text: #000000;
+  }
+
+  .markup pre,
+  .markup code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}

@@ -1,0 +1,1241 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;700&display=swap');
+
+/*!
+ * Swiss Light (Paper) — Paper Monospace Swiss Theme for Forgejo 17.x
+ * Aesthetic: Warm paper (#fdfcfb), slate blue (#256786), brick mark (#b24c37)
+ * License: MIT (https://github.com/chius-me/forgejo-theme-swiss)
+ */
+
+/* Swiss Paper (Light) — Warm Paper Monospace Tokens for Forgejo 17.x */
+
+:root {
+  color-scheme: light;
+
+  /* Core Swiss Paper Palette */
+  --swiss-bg: #fdfcfb;
+  --swiss-text: #292c30;
+  --swiss-muted: #6b7076;
+  --swiss-muted-on-soft: #52575d;
+  --swiss-accent: #256786;
+  --swiss-accent-hover: #124c68;
+  --swiss-accent-active: #0c384e;
+  --swiss-primary-contrast: #fdfcfb;
+  --swiss-mark: #b24c37;
+  --swiss-line: #e5e4e1;
+  --swiss-border: #8d8e8c;
+  --swiss-border-hover: #52575d;
+  --swiss-soft: #f2f1ee;
+  --swiss-soft-hover: #e8e6e1;
+  --swiss-code-bg: #f5f4f1;
+  --swiss-scrollbar-thumb: #73787e;
+  --swiss-scrollbar-track: #f2f1ee;
+
+  /* Syntax Tokens (on --swiss-code-bg #f5f4f1, WCAG AA >= 4.5:1) */
+  --syntax-fg: #292c30;
+  --syntax-comment: #62676d;
+  --syntax-keyword: #b24c37;
+  --syntax-string: #1f6443;
+  --syntax-number: #8a4d12;
+  --syntax-function: #256786;
+  --syntax-type: #195672;
+  --syntax-attr: #6a4884;
+  --syntax-operator: #4b5057;
+  --syntax-regex: #166560;
+  --syntax-inserted-fg: #1b593a;
+  --syntax-inserted-bg: #e6f3ea;
+  --syntax-deleted-fg: #993524;
+  --syntax-deleted-bg: #f9e9e6;
+  --syntax-highlight-bg: #ebe9e2;
+
+  /* Steel ramp (compatibility) */
+  --steel-900: #10161d;
+  --steel-850: #131a21;
+  --steel-800: #171e26;
+  --steel-750: #1d262f;
+  --steel-700: #242d38;
+  --steel-650: #2b3642;
+  --steel-600: #374351;
+  --steel-550: #445161;
+  --steel-500: #515f70;
+  --steel-450: #5f6e80;
+  --steel-400: #6d7d8f;
+  --steel-350: #7c8c9f;
+  --steel-300: #8c9caf;
+  --steel-250: #9dadc0;
+  --steel-200: #aebed0;
+  --steel-150: #c0cfe0;
+  --steel-100: #d2e0f0;
+
+  /* Warm paper zinc ramp */
+  --zinc-50: #fdfcfb;
+  --zinc-100: #f2f1ee;
+  --zinc-150: #e8e6e1;
+  --zinc-200: #e5e4e1;
+  --zinc-250: #dad8d3;
+  --zinc-300: #c9c6be;
+  --zinc-350: #aba8a0;
+  --zinc-400: #8d8e8c;
+  --zinc-450: #7b7e82;
+  --zinc-500: #6b7076;
+  --zinc-550: #5c6167;
+  --zinc-600: #52575d;
+  --zinc-650: #464b50;
+  --zinc-700: #3a3e43;
+  --zinc-750: #31353a;
+  --zinc-800: #292c30;
+  --zinc-850: #212428;
+  --zinc-900: #191b1e;
+
+  /* Primary — Slate Blue */
+  --color-primary: var(--swiss-accent);
+  --color-primary-contrast: var(--swiss-primary-contrast);
+  --color-primary-dark-1: #256786;
+  --color-primary-dark-2: #124c68;
+  --color-primary-dark-3: #124c68;
+  --color-primary-dark-4: #0c384e;
+  --color-primary-light-1: #2f7799;
+  --color-primary-light-2: #3d87aa;
+  --color-primary-light-3: #579cbb;
+  --color-primary-light-4: #84b9d1;
+  --color-primary-light-5: #b9d9e7;
+  --color-primary-light-6: #e6f0f5;
+  --color-primary-light-7: #f4f8fa;
+  --color-primary-alpha-10: #25678619;
+  --color-primary-alpha-20: #25678633;
+  --color-primary-alpha-30: #2567864b;
+  --color-primary-alpha-40: #25678666;
+  --color-primary-alpha-50: #25678680;
+  --color-primary-alpha-60: #25678699;
+  --color-primary-alpha-70: #256786b3;
+  --color-primary-alpha-80: #256786cc;
+  --color-primary-alpha-90: #256786e1;
+  --color-primary-hover: var(--color-primary-dark-2);
+  --color-primary-active: var(--color-primary-dark-4);
+
+  /* Secondary — Warm Paper Neutrals */
+  --color-secondary: var(--swiss-line);
+  --color-secondary-dark-1: #dad8d3;
+  --color-secondary-dark-2: #c9c6be;
+  --color-secondary-dark-3: #aba8a0;
+  --color-secondary-dark-4: #8d8e8c;
+  --color-secondary-dark-5: #7b7e82;
+  --color-secondary-dark-6: #6b7076;
+  --color-secondary-dark-7: #5c6167;
+  --color-secondary-dark-8: #52575d;
+  --color-secondary-dark-9: #464b50;
+  --color-secondary-dark-10: #3a3e43;
+  --color-secondary-dark-11: #31353a;
+  --color-secondary-dark-12: #292c30;
+  --color-secondary-dark-13: #292c30;
+  --color-secondary-light-1: #e8e6e1;
+  --color-secondary-light-2: #f2f1ee;
+  --color-secondary-light-3: #f5f4f1;
+  --color-secondary-light-4: #fdfcfb;
+  --color-secondary-alpha-10: #292c3012;
+  --color-secondary-alpha-20: #292c301f;
+  --color-secondary-alpha-30: #292c302e;
+  --color-secondary-alpha-40: #292c3040;
+  --color-secondary-alpha-50: #292c3054;
+  --color-secondary-alpha-60: #292c306b;
+  --color-secondary-alpha-70: #292c3085;
+  --color-secondary-alpha-80: #292c30a3;
+  --color-secondary-alpha-90: #292c30cc;
+  --color-secondary-hover: var(--swiss-soft-hover);
+  --color-secondary-active: #dad8d3;
+
+  /* Actions / Terminal Console (kept dark slate for readability) */
+  --color-console-fg: #e1e5ed;
+  --color-console-fg-subtle: #a4adbb;
+  --color-console-bg: #202530;
+  --color-console-border: #3c4350;
+  --color-console-hover-bg: #ffffff16;
+  --color-console-active-bg: #353d4b;
+  --color-console-menu-bg: #2a303c;
+  --color-console-menu-border: #4d5666;
+
+  /* Editorial Semantic Palette */
+  --color-red: #b24c37;
+  --color-orange: #b55d24;
+  --color-yellow: #8e6312;
+  --color-olive: #68731b;
+  --color-green: #266c49;
+  --color-teal: #1d6f6a;
+  --color-blue: #256786;
+  --color-violet: #6c4a86;
+  --color-purple: #6c4a86;
+  --color-pink: #9c4365;
+  --color-brown: #7f573d;
+  --color-grey: #52575d;
+  --color-black: #292c30;
+
+  --color-red-light: #c55a44;
+  --color-orange-light: #c96f32;
+  --color-yellow-light: #a67618;
+  --color-olive-light: #7c8922;
+  --color-green-light: #2e8057;
+  --color-teal-light: #24847e;
+  --color-purple-light: #7e599b;
+  --color-pink-light: #b05175;
+  --color-brown-light: #93684b;
+  --color-grey-light: #6b7076;
+  --color-black-light: #3a3e43;
+
+  --color-red-dark-1: #9a3e2b;
+  --color-orange-dark-1: #9b4e1c;
+  --color-yellow-dark-1: #77520d;
+  --color-olive-dark-1: #576115;
+  --color-green-dark-1: #1e593c;
+  --color-teal-dark-1: #175c58;
+  --color-violet-dark-1: #5a3c71;
+  --color-purple-dark-1: #5a3c71;
+  --color-pink-dark-1: #843654;
+  --color-brown-dark-1: #6b4831;
+  --color-black-dark-1: #212428;
+
+  --color-red-dark-2: #823121;
+  --color-orange-dark-2: #824015;
+  --color-yellow-dark-2: #614209;
+  --color-olive-dark-2: #464e0f;
+  --color-green-dark-2: #17462f;
+  --color-teal-dark-2: #114946;
+  --color-violet-dark-2: #482e5c;
+  --color-purple-dark-2: #482e5c;
+  --color-pink-dark-2: #6d2b44;
+  --color-brown-dark-2: #573a27;
+  --color-black-dark-2: #191b1e;
+
+  /* ANSI Console Colors */
+  --color-ansi-black: #202530;
+  --color-ansi-red: #d97362;
+  --color-ansi-green: #7ab88f;
+  --color-ansi-yellow: #dfbc6c;
+  --color-ansi-blue: #78acc7;
+  --color-ansi-magenta: #c786a6;
+  --color-ansi-cyan: #6cb7b1;
+  --color-ansi-white: var(--color-console-fg-subtle);
+  --color-ansi-bright-black: #535c6d;
+  --color-ansi-bright-red: #e58c7d;
+  --color-ansi-bright-green: #95cfa8;
+  --color-ansi-bright-yellow: #ecd18e;
+  --color-ansi-bright-blue: #96c3db;
+  --color-ansi-bright-magenta: #d9a0bc;
+  --color-ansi-bright-cyan: #89cbc6;
+  --color-ansi-bright-white: var(--color-console-fg);
+
+  --color-gold: #9e7e2e;
+  --color-white: #fdfcfb;
+
+  /* Diff Colors */
+  --color-diff-removed-word-bg: #f1cbc4;
+  --color-diff-added-word-bg: #c6e6d1;
+  --color-diff-removed-row-bg: #faeeec;
+  --color-diff-moved-row-bg: #f9f2dd;
+  --color-diff-added-row-bg: #ecf6ef;
+  --color-diff-removed-row-border: #e5b7af;
+  --color-diff-moved-row-border: #e3d19a;
+  --color-diff-added-row-border: #b6d8c2;
+  --color-diff-inactive: var(--swiss-soft);
+
+  /* Alert Banners */
+  --color-error-border: #deb2a9;
+  --color-error-bg: #faeeec;
+  --color-error-bg-active: #f1cbc4;
+  --color-error-bg-hover: #f6ddd9;
+  --color-error-text: #7d2c1c;
+
+  --color-success-border: #afd4bc;
+  --color-success-bg: #ecf6ef;
+  --color-success-text: #1b5337;
+
+  --color-warning-border: #decb93;
+  --color-warning-bg: #f9f2dd;
+  --color-warning-text: #66460b;
+
+  --color-info-border: #a9cad9;
+  --color-info-bg: #ebf3f7;
+  --color-info-text: #124c68;
+
+  /* Badges */
+  --color-red-badge: #b24c37;
+  --color-red-badge-bg: #b24c3720;
+  --color-red-badge-hover-bg: #b24c3736;
+  --color-green-badge: #266c49;
+  --color-green-badge-bg: #266c4920;
+  --color-green-badge-hover-bg: #266c4936;
+  --color-yellow-badge: #8e6312;
+  --color-yellow-badge-bg: #8e631220;
+  --color-yellow-badge-hover-bg: #8e631236;
+  --color-orange-badge: #b55d24;
+  --color-orange-badge-bg: #b55d2420;
+  --color-orange-badge-hover-bg: #b55d2436;
+
+  /* Forgejo Dynamic OKLCH Accents */
+  --thin-lightness: 0.50;
+  --regular-chroma: 0.13;
+  --hue-green: 152deg;
+  --hue-red: 28deg;
+  --hue-purple: 298deg;
+  --hue-violet: 293deg;
+  --hue-orange: 42deg;
+  --hue-blue: 228deg;
+
+  /* Surfaces & Typography Mapping */
+  --color-body: var(--swiss-bg);
+  --color-box-header: var(--swiss-soft);
+  --color-box-body: var(--swiss-bg);
+  --color-box-body-highlight: var(--swiss-soft);
+  --color-text-dark: #191b1e;
+  --color-text: var(--swiss-text);
+  --color-text-light: #464b50;
+  --color-text-light-1: var(--swiss-muted-on-soft);
+  --color-text-light-2: var(--swiss-muted-on-soft);
+  --color-text-light-3: var(--swiss-muted-on-soft);
+  --color-footer: var(--swiss-bg);
+  --color-timeline: var(--swiss-line);
+  --color-input-text: var(--swiss-text);
+  --color-input-background: var(--swiss-bg);
+  --color-input-toggle-background: var(--swiss-soft);
+  --color-input-border: var(--swiss-border);
+  --color-input-border-hover: var(--swiss-border-hover);
+  --color-header-wrapper: var(--swiss-bg);
+  --color-header-wrapper-transparent: #fdfcfb00;
+  --color-light: #fdfcfbcc;
+  --color-light-mimic-enabled: rgba(41, 44, 48, calc(6 / 255 * 222 / 255 / var(--opacity-disabled)));
+  --color-light-border: #292c3024;
+  --color-hover: var(--swiss-soft);
+  --color-active: var(--swiss-soft-hover);
+  --color-menu: var(--swiss-bg);
+  --color-card: var(--swiss-bg);
+  --fancy-card-bg: var(--swiss-code-bg);
+  --fancy-card-border: var(--swiss-line);
+  --color-markup-table-row: #292c3006;
+  --color-markup-code-block: var(--swiss-code-bg);
+  --color-markup-code-inline: var(--swiss-soft);
+  --color-button: var(--swiss-soft);
+  --color-code-bg: var(--swiss-code-bg);
+  --color-shadow: #292c3026;
+  --color-secondary-bg: var(--swiss-soft);
+  --color-text-focus: var(--swiss-text);
+  --color-expand-button: var(--swiss-soft);
+  --color-placeholder-text: var(--swiss-muted-on-soft);
+  --color-editor-line-highlight: var(--swiss-soft);
+  --color-project-board-bg: var(--swiss-code-bg);
+  --color-project-board-dark-label: var(--swiss-muted-on-soft);
+  --color-caret: var(--swiss-text);
+  --color-reaction-bg: #292c300a;
+  --color-reaction-active-bg: var(--color-primary-alpha-20);
+  --color-reaction-hover-bg: var(--color-primary-alpha-30);
+  --color-tooltip-text: var(--swiss-bg);
+  --color-tooltip-bg: #292c30f2;
+  --color-nav-bg: var(--swiss-bg);
+  --color-nav-hover-bg: var(--swiss-soft);
+  --color-secondary-nav-bg: var(--swiss-bg);
+  --color-label-text: var(--swiss-text);
+  --color-label-bg: #e8e6e1;
+  --color-label-hover-bg: #dad8d3;
+  --color-label-active-bg: #c9c6be;
+  --color-label-bg-alt: #e8e6e1;
+  --color-accent: var(--swiss-accent);
+  --color-small-accent: #e6f0f5;
+  --color-highlight-fg: var(--swiss-accent);
+  --color-highlight-bg: #e6f0f5;
+  --color-overlay-backdrop: #20253099;
+  --color-selection-bg: var(--swiss-accent);
+  --color-selection-fg: var(--swiss-bg);
+  --checkerboard-color-1: #fdfcfb;
+  --checkerboard-color-2: #edece8;
+  --color-indicator-offline: #52575d;
+  --color-indicator-offline-20: #52575d2b;
+  --color-indicator-idle: #266c49;
+  --color-indicator-idle-20: #266c492b;
+  --color-indicator-active: #256786;
+  --color-indicator-active-20: #2567862b;
+
+  accent-color: var(--swiss-accent);
+}
+
+/* Light-mode markdown media visibility */
+.markup [src$="#gh-light-mode-only"],
+.markup [src$="#light-mode-only"],
+.markup [href$="#gh-light-mode-only"],
+.markup [href$="#light-mode-only"] {
+  display: unset;
+}
+
+.markup [src$="#gh-dark-mode-only"],
+.markup [src$="#dark-mode-only"],
+.markup [href$="#gh-dark-mode-only"],
+.markup [href$="#dark-mode-only"] {
+  display: none;
+}
+
+svg.brand-color path,
+svg.brand-color rect {
+  fill: var(--brand-light-fill, revert-rule);
+}
+
+.ui.red.label.notification_count,
+.ui.primary.label,
+.ui.primary.labels .label {
+  background-color: var(--swiss-accent) !important;
+  color: var(--swiss-primary-contrast) !important;
+}
+
+.ui.labeled.icon.buttons > .button > .icon,
+.ui.labeled.icon.button > .icon {
+  background-color: var(--color-secondary-alpha-20) !important;
+}
+
+.ui.basic.labels .primary.label,
+.ui.ui.ui.basic.primary.label {
+  color: var(--swiss-accent) !important;
+  border-color: var(--swiss-accent) !important;
+}
+
+.ui.yellow.label.pending-label {
+  background: var(--color-warning-bg) !important;
+  color: var(--color-warning-text) !important;
+}
+
+/* ==========================================================================
+   Paper Monospace Swiss Core Rules for Forgejo 17.x
+   Shared by theme-swiss-light.css and theme-swiss-dark.css
+   ========================================================================== */
+
+:root {
+  --swiss-font: "Google Sans Code", "Sarasa Mono SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace, var(--fonts-emoji);
+  --swiss-dur: 150ms;
+  --swiss-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Override Forgejo font & radius system tokens */
+  --fonts-monospace: var(--swiss-font);
+  --fonts-proportional: var(--swiss-font);
+  --fonts-regular: var(--swiss-font);
+  --fonts-override: var(--swiss-font);
+  --fonts-default-override-ja: var(--swiss-font);
+  --fonts-default-override-zh-cn: var(--swiss-font);
+  --fonts-default-override-zh-tw: var(--swiss-font);
+  --fonts-default-override-zh-hk: var(--swiss-font);
+  --fonts-default-override-ko: var(--swiss-font);
+
+  --border-radius: 4px;
+  --border-radius-medium: 4px;
+  --border-radius-large: 4px;
+
+  scrollbar-color: var(--swiss-scrollbar-thumb) var(--swiss-scrollbar-track);
+  scrollbar-width: thin;
+}
+
+/* Override Forgejo's :lang(...) proportional font locks */
+:root :lang(ja),
+:root :lang(zh-CN),
+:root :lang(zh-TW),
+:root :lang(zh-HK),
+:root :lang(ko) {
+  --fonts-override: var(--swiss-font);
+}
+
+/* ==========================================================================
+   1. Base Typography, Selection & Scrollbars
+   ========================================================================== */
+
+html {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  font-family: var(--swiss-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  font-family: var(--swiss-font);
+  line-break: strict;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--swiss-font);
+}
+
+::selection {
+  background: var(--swiss-accent);
+  color: var(--swiss-primary-contrast);
+}
+
+::-moz-selection {
+  background: var(--swiss-accent);
+  color: var(--swiss-primary-contrast);
+}
+
+/* Scrollbar styling for scrollable panels and legacy WebKit fallback */
+pre,
+.code-inner,
+.CodeMirror-scroll,
+.ui.table,
+.markup pre {
+  scrollbar-color: var(--swiss-scrollbar-thumb) var(--swiss-scrollbar-track);
+  scrollbar-width: thin;
+}
+
+@supports not (scrollbar-color: auto) {
+  :root,
+  pre,
+  .code-inner,
+  .CodeMirror-scroll,
+  .ui.table,
+  .markup pre {
+    scrollbar-width: auto;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--swiss-scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--swiss-scrollbar-thumb);
+    border-radius: 4px;
+  }
+}
+
+/* Tabular alignment for hashes, line numbers, metrics & timestamps */
+.sha,
+.shortsha,
+.lines-num,
+.line-num,
+.file-size,
+relative-time,
+.ui.label,
+.issue .index,
+.repo-count,
+.page-footer strong {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   2. Links & Instant Dashed Focus Ring
+   ========================================================================== */
+
+a {
+  color: var(--swiss-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color var(--swiss-dur) var(--swiss-ease);
+}
+
+a:hover {
+  color: var(--swiss-accent-hover);
+}
+
+:focus-visible {
+  outline: 2px dashed var(--swiss-accent) !important;
+  outline-offset: 3px !important;
+  transition: none !important;
+}
+
+#navbar .item:focus-visible,
+.ui.menu .item:focus-visible,
+.ui.dropdown .menu > .item:focus-visible,
+.ui.buttons .button:focus-visible,
+.ui.pagination.menu .item:focus-visible {
+  outline-offset: -3px !important;
+}
+
+/* ==========================================================================
+   3. Flat Paper Geometry & Hairline Dividers (No Shadow Bloat)
+   ========================================================================== */
+
+.ui.menu,
+.ui.segment,
+.ui.segments,
+.ui.card,
+.ui.cards > .card,
+.ui.table,
+.ui.attached.header,
+.ui.top.attached.header,
+.ui.bottom.attached.segment,
+.ui.message,
+.ui.button,
+.ui.buttons,
+.fancy-card {
+  box-shadow: none !important;
+}
+
+.ui.menu,
+.ui.segment,
+.ui.segments,
+.ui.card,
+.ui.cards > .card,
+.ui.table,
+.ui.message,
+.fancy-card {
+  border-color: var(--swiss-line);
+  border-radius: 4px;
+}
+
+.ui.top.attached.header {
+  border-color: var(--swiss-line);
+  background: var(--swiss-soft);
+  color: var(--swiss-text);
+  border-radius: 4px 4px 0 0;
+}
+
+.ui.attached.segment,
+.ui.bottom.attached.segment,
+.ui.attached.table {
+  border-color: var(--swiss-line);
+  background: var(--swiss-bg);
+}
+
+/* Floating overlays keep crisp hairline border + restrained depth */
+.ui.dropdown .menu,
+.ui.modal,
+.tippy-box {
+  border: 1px solid var(--swiss-border) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 6px 18px var(--color-shadow) !important;
+}
+
+.ui.dropdown .menu {
+  background: var(--swiss-bg) !important;
+}
+
+/* ==========================================================================
+   4. Top Navigation, Repo Secondary Nav & Footer
+   ========================================================================== */
+
+#navbar {
+  background: var(--swiss-bg);
+  border-bottom: 1px solid var(--swiss-line);
+  box-shadow: none;
+  padding-inline: 16px;
+}
+
+#navbar .item {
+  color: var(--swiss-text);
+  border-radius: 4px;
+  transition: color var(--swiss-dur) var(--swiss-ease), background-color var(--swiss-dur) var(--swiss-ease);
+}
+
+#navbar a.item:not(#navbar-logo):hover,
+#navbar a.item.active:not(#navbar-logo) {
+  background: transparent;
+  color: var(--swiss-accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--swiss-accent);
+  text-underline-offset: 0.45em;
+}
+
+#navbar .item:hover {
+  background: var(--swiss-soft);
+  color: var(--swiss-accent);
+}
+
+#navbar a.item:not(#navbar-logo):hover {
+  background: transparent;
+}
+
+.secondary-nav {
+  background: var(--swiss-bg) !important;
+  border-bottom: 1px solid var(--swiss-line);
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 1px solid var(--swiss-line);
+}
+
+.ui.secondary.pointing.menu .item {
+  color: var(--swiss-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color var(--swiss-dur) var(--swiss-ease), border-color var(--swiss-dur) var(--swiss-ease);
+}
+
+.ui.secondary.pointing.menu .item:hover {
+  color: var(--swiss-text);
+  border-bottom-color: var(--swiss-border);
+}
+
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover {
+  color: var(--swiss-text);
+  font-weight: 700;
+  border-bottom-color: var(--swiss-accent);
+}
+
+.ui.secondary.vertical.menu {
+  border-radius: 4px !important;
+  overflow: hidden;
+  border: 1px solid var(--swiss-line);
+  background: var(--swiss-bg);
+}
+
+.ui.secondary.vertical.menu .item {
+  color: var(--swiss-text);
+  border-radius: 0;
+}
+
+.ui.secondary.vertical.menu .active.item {
+  background: var(--swiss-soft) !important;
+  color: var(--swiss-accent) !important;
+  font-weight: 700;
+}
+
+.page-footer {
+  background: var(--swiss-bg);
+  border-top: 1px solid var(--swiss-line);
+  color: var(--swiss-muted);
+  font-size: 0.8125rem;
+}
+
+.page-footer a {
+  color: var(--swiss-muted);
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  color: var(--swiss-accent);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   5. Buttons, Inputs & Labels (Zero Displacement, Accessible Contrast)
+   ========================================================================== */
+
+.ui.button {
+  background: var(--swiss-soft);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+  border-radius: 4px;
+  font-weight: 500;
+  transition:
+    color var(--swiss-dur) var(--swiss-ease),
+    background-color var(--swiss-dur) var(--swiss-ease),
+    border-color var(--swiss-dur) var(--swiss-ease);
+}
+
+.ui.button:hover {
+  background: var(--swiss-bg);
+  color: var(--swiss-accent);
+  border-color: var(--swiss-accent);
+  transform: none;
+}
+
+.ui.basic.button,
+.ui.basic.buttons .button {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+  box-shadow: none !important;
+}
+
+.ui.basic.button:hover,
+.ui.basic.buttons .button:hover {
+  background: var(--swiss-soft);
+  color: var(--swiss-accent);
+  border-color: var(--swiss-accent);
+}
+
+.ui.basic.buttons {
+  border: 1px solid var(--swiss-border);
+  border-radius: 4px;
+}
+
+.ui.basic.buttons .button {
+  border: 0;
+}
+
+.ui.basic.buttons .button + .button {
+  border-inline-start: 1px solid var(--swiss-line);
+}
+
+.ui.buttons > .button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.ui.buttons > .button:first-child:not(:last-child) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.ui.buttons > .button:last-child:not(:first-child) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.ui.labeled.button > .button {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.ui.labeled.button > .label {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+  border-inline-start: 0 !important;
+  border-color: var(--swiss-border);
+}
+
+.ui.action.input > *:not(:first-child):not(:last-child),
+.ui.action.input > *:not(:first-child):not(:last-child) > input {
+  border-radius: 0;
+}
+
+.ui.action.input > *:first-child:not(:last-child),
+.ui.action.input > *:first-child:not(:last-child) > input {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.ui.action.input > *:last-child:not(:first-child),
+.ui.action.input > *:last-child:not(:first-child) > input {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.ui.action.input > .button + .button,
+.ui.action.input > .button + .dropdown,
+.ui.action.input > input + .button,
+.ui.action.input > input + .dropdown {
+  border-inline-start-width: 0;
+}
+
+.ui.basic.primary.button.item {
+  background-color: var(--swiss-soft-hover) !important;
+  color: var(--swiss-text) !important;
+  box-shadow: none !important;
+}
+
+.ui.primary.button,
+.ui.primary.buttons .button {
+  background-color: var(--swiss-accent);
+  color: var(--swiss-primary-contrast);
+  border: 1px solid var(--swiss-accent);
+}
+
+.ui.primary.button:hover,
+.ui.primary.buttons .button:hover {
+  background-color: var(--swiss-accent-hover);
+  color: var(--swiss-primary-contrast);
+  border-color: var(--swiss-accent-hover);
+}
+
+.ui.primary.button:active,
+.ui.primary.buttons .button:active {
+  background-color: var(--swiss-accent-active);
+  color: var(--swiss-primary-contrast);
+  border-color: var(--swiss-accent-active);
+}
+
+.ui.input input,
+.ui.form input:not([type]),
+.ui.form input[type="text"],
+.ui.form input[type="email"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="url"],
+.ui.form select,
+.ui.form textarea,
+.ui.selection.dropdown {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+  border-radius: 4px;
+  box-shadow: none;
+  transition: border-color var(--swiss-dur) var(--swiss-ease), background-color var(--swiss-dur) var(--swiss-ease);
+}
+
+.ui.input input:hover,
+.ui.form input:hover,
+.ui.form select:hover,
+.ui.form textarea:hover,
+.ui.selection.dropdown:hover {
+  border-color: var(--swiss-border-hover);
+}
+
+.ui.input input:focus,
+.ui.form input:focus,
+.ui.form select:focus,
+.ui.form textarea:focus,
+.ui.selection.dropdown.active {
+  border-color: var(--swiss-accent);
+  box-shadow: none;
+}
+
+/* Restrained flat badges & labels */
+.ui.label {
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.ui.basic.label {
+  background: var(--swiss-bg);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-border);
+}
+
+#review-box .review-comments-counter {
+  background-color: var(--color-label-bg) !important;
+  color: var(--swiss-text) !important;
+  margin-inline-start: 0.5em;
+}
+
+/* ==========================================================================
+   6. Repository File List, Headers, Pagination & Diffs
+   ========================================================================== */
+
+.repo-header .repo-title {
+  letter-spacing: -0.025em;
+}
+
+#repo-files-table {
+  border: 1px solid var(--swiss-line);
+  border-radius: 4px;
+  background: var(--swiss-bg);
+}
+
+#repo-files-table tr.commit-list {
+  background: var(--swiss-soft);
+}
+
+#repo-files-table tbody tr {
+  transition: background-color var(--swiss-dur) var(--swiss-ease);
+}
+
+#repo-files-table tbody tr:not(.commit-list):hover {
+  background: var(--swiss-soft);
+}
+
+.ui.pagination.menu {
+  border: 1px solid var(--swiss-border);
+  background: var(--swiss-bg);
+}
+
+.ui.pagination.menu .active.item {
+  background: var(--swiss-soft);
+  color: var(--swiss-accent);
+  font-weight: 700;
+}
+
+.repository .diff-file-box .file-header {
+  background: var(--swiss-soft);
+  border-color: var(--swiss-line);
+}
+
+.repository .file-view .lines-num {
+  background: var(--swiss-soft);
+  color: var(--swiss-muted-on-soft);
+  border-inline-end: 1px solid var(--swiss-line);
+}
+
+.repository .file-view .lines-code,
+.repository .code-view {
+  background: var(--swiss-code-bg);
+}
+
+/* ==========================================================================
+   7. Markdown Prose (.markup) — Chipaper Editorial Rules
+   ========================================================================== */
+
+.markup {
+  color: var(--swiss-text);
+  line-height: 1.85;
+  line-break: strict;
+}
+
+.markup h1,
+.markup h2,
+.markup h3,
+.markup h4 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  border-bottom-color: var(--swiss-line);
+}
+
+.markup a {
+  text-decoration-style: dashed;
+  overflow-wrap: anywhere;
+}
+
+.markup blockquote:not(.attention-header) {
+  border-inline-start: 3px solid var(--swiss-mark);
+  color: var(--swiss-muted);
+  padding: 0.15rem 0 0.15rem 1.15rem;
+}
+
+.markup li::marker {
+  color: var(--swiss-mark);
+}
+
+.markup hr {
+  height: 0;
+  border: 0;
+  border-top: 1px dashed var(--swiss-line);
+  background: transparent;
+  margin-block: 1.75rem;
+}
+
+.markup code,
+.markup tt {
+  background: var(--swiss-soft);
+  color: var(--swiss-text);
+  border: 1px solid var(--swiss-line);
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+  font-family: var(--swiss-font);
+}
+
+.markup pre {
+  background: var(--swiss-code-bg);
+  border: 1px solid var(--swiss-line);
+  border-radius: 4px;
+  font-family: var(--swiss-font);
+}
+
+.markup pre > code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.markup table th {
+  background: var(--swiss-soft);
+}
+
+.markup table th,
+.markup table td {
+  border-color: var(--swiss-line);
+}
+
+.markup img {
+  border-radius: 3px;
+}
+
+strong.attention-important,
+svg.attention-important {
+  color: var(--color-violet-light);
+}
+
+strong.attention-note,
+svg.attention-note {
+  color: var(--color-blue-light);
+}
+
+strong.attention-caution,
+svg.attention-caution {
+  color: var(--color-red-light);
+}
+
+/* ==========================================================================
+   8. Chroma Syntax Highlighting & CodeMirror Editor
+   ========================================================================== */
+
+.chroma {
+  color: var(--syntax-fg);
+}
+
+.chroma .hl {
+  background-color: var(--syntax-highlight-bg);
+}
+
+.chroma .bp { color: var(--syntax-attr); font-style: italic; }
+.chroma .c,
+.chroma .c1,
+.chroma .ch,
+.chroma .cm,
+.chroma .cs { color: var(--syntax-comment); font-style: italic; }
+.chroma .cp { color: var(--syntax-keyword); }
+.chroma .cpf { color: var(--syntax-string); }
+.chroma .dl { color: var(--syntax-string); }
+.chroma .gd { color: var(--syntax-deleted-fg); background-color: var(--syntax-deleted-bg); }
+.chroma .ge { color: var(--syntax-fg); font-style: italic; }
+.chroma .gh { color: var(--syntax-function); font-weight: 700; }
+.chroma .gi { color: var(--syntax-inserted-fg); background-color: var(--syntax-inserted-bg); }
+.chroma .gl { text-decoration: underline; }
+.chroma .go { color: var(--syntax-comment); }
+.chroma .gp { color: var(--syntax-muted, var(--syntax-comment)); }
+.chroma .gr { color: var(--syntax-deleted-fg); }
+.chroma .gs { color: var(--syntax-fg); font-weight: 700; }
+.chroma .gt { color: var(--syntax-deleted-fg); }
+.chroma .gu { color: var(--syntax-comment); font-weight: 700; }
+.chroma .il { color: var(--syntax-number); }
+.chroma .k,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr { color: var(--syntax-keyword); }
+.chroma .kc { color: var(--syntax-number); }
+.chroma .kt { color: var(--syntax-type); }
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .mo { color: var(--syntax-number); }
+.chroma .n { color: var(--syntax-fg); }
+.chroma .na { color: var(--syntax-attr); }
+.chroma .nb { color: var(--syntax-type); }
+.chroma .nc { color: var(--syntax-type); font-weight: 500; }
+.chroma .nd { color: var(--syntax-attr); }
+.chroma .ne { color: var(--syntax-keyword); }
+.chroma .nf,
+.chroma .fm { color: var(--syntax-function); }
+.chroma .ni { color: var(--syntax-attr); }
+.chroma .nl { color: var(--syntax-keyword); }
+.chroma .nn { color: var(--syntax-fg); }
+.chroma .no { color: var(--syntax-number); }
+.chroma .nt { color: var(--syntax-keyword); }
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm { color: var(--syntax-fg); }
+.chroma .nx { color: var(--syntax-fg); }
+.chroma .o,
+.chroma .ow { color: var(--syntax-operator); }
+.chroma .p { color: var(--syntax-fg); }
+.chroma .s,
+.chroma .s1,
+.chroma .s2,
+.chroma .sb,
+.chroma .sd,
+.chroma .sh,
+.chroma .sx { color: var(--syntax-string); }
+.chroma .sa { color: var(--syntax-keyword); }
+.chroma .sc { color: var(--syntax-number); }
+.chroma .se { color: var(--syntax-number); }
+.chroma .si { color: var(--syntax-number); }
+.chroma .sr { color: var(--syntax-regex); }
+.chroma .ss { color: var(--syntax-number); }
+.chroma .w { color: var(--syntax-comment); }
+.chroma .err { /* intentionally unstyled — matches Forgejo convention */ }
+
+/* CodeMirror Markdown / Code Editor */
+.CodeMirror.cm-s-default,
+.CodeMirror.cm-s-paper {
+  background: var(--swiss-code-bg);
+  color: var(--syntax-fg);
+  font-family: var(--swiss-font);
+}
+
+.CodeMirror.cm-s-default .cm-property,
+.CodeMirror.cm-s-paper .cm-property { color: var(--syntax-attr); }
+.CodeMirror.cm-s-default .cm-header,
+.CodeMirror.cm-s-paper .cm-header { color: var(--syntax-function); font-weight: 700; }
+.CodeMirror.cm-s-default .cm-quote,
+.CodeMirror.cm-s-paper .cm-quote { color: var(--syntax-comment); }
+.CodeMirror.cm-s-default .cm-keyword,
+.CodeMirror.cm-s-paper .cm-keyword { color: var(--syntax-keyword); }
+.CodeMirror.cm-s-default .cm-atom,
+.CodeMirror.cm-s-paper .cm-atom { color: var(--syntax-number); }
+.CodeMirror.cm-s-default .cm-number,
+.CodeMirror.cm-s-paper .cm-number { color: var(--syntax-number); }
+.CodeMirror.cm-s-default .cm-def,
+.CodeMirror.cm-s-paper .cm-def { color: var(--syntax-fg); }
+.CodeMirror.cm-s-default .cm-variable-2,
+.CodeMirror.cm-s-paper .cm-variable-2 { color: var(--syntax-type); }
+.CodeMirror.cm-s-default .cm-variable-3,
+.CodeMirror.cm-s-paper .cm-variable-3 { color: var(--syntax-string); }
+.CodeMirror.cm-s-default .cm-comment,
+.CodeMirror.cm-s-paper .cm-comment { color: var(--syntax-comment); font-style: italic; }
+.CodeMirror.cm-s-default .cm-string,
+.CodeMirror.cm-s-paper .cm-string { color: var(--syntax-string); }
+.CodeMirror.cm-s-default .cm-string-2,
+.CodeMirror.cm-s-paper .cm-string-2 { color: var(--syntax-number); }
+.CodeMirror.cm-s-default .cm-meta,
+.CodeMirror.cm-s-paper .cm-meta,
+.CodeMirror.cm-s-default .cm-qualifier,
+.CodeMirror.cm-s-paper .cm-qualifier { color: var(--syntax-keyword); }
+.CodeMirror.cm-s-default .cm-builtin,
+.CodeMirror.cm-s-paper .cm-builtin { color: var(--syntax-type); }
+.CodeMirror.cm-s-default .cm-bracket,
+.CodeMirror.cm-s-paper .cm-bracket { color: var(--syntax-fg); }
+.CodeMirror.cm-s-default .cm-tag,
+.CodeMirror.cm-s-paper .cm-tag { color: var(--syntax-keyword); }
+.CodeMirror.cm-s-default .cm-attribute,
+.CodeMirror.cm-s-paper .cm-attribute { color: var(--syntax-attr); }
+.CodeMirror.cm-s-default .cm-hr,
+.CodeMirror.cm-s-paper .cm-hr { color: var(--syntax-comment); }
+.CodeMirror.cm-s-default .cm-url,
+.CodeMirror.cm-s-paper .cm-url { color: var(--syntax-function); }
+.CodeMirror.cm-s-default .cm-link,
+.CodeMirror.cm-s-paper .cm-link { color: var(--syntax-function); text-decoration: underline; }
+.CodeMirror.cm-s-default .cm-error,
+.CodeMirror.cm-s-paper .cm-error { color: var(--syntax-deleted-fg); }
+
+/* ==========================================================================
+   9. Accessibility Modes, Reduced Motion & Print
+   ========================================================================== */
+
+@media (max-width: 767.98px) {
+  #navbar .item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .ui.pagination.menu .item {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px dashed Highlight !important;
+  }
+
+  .ui.button,
+  .ui.input input,
+  .ui.form select,
+  .ui.form textarea,
+  .ui.menu,
+  .ui.segment,
+  .ui.table {
+    border-color: ButtonBorder;
+  }
+}
+
+@media print {
+  #navbar,
+  .page-footer,
+  .repo-buttons,
+  .ui.secondary.pointing.menu,
+  .issue-list-toolbar {
+    display: none !important;
+  }
+
+  :root {
+    --swiss-bg: #ffffff;
+    --swiss-text: #000000;
+    --swiss-muted: #444444;
+    --swiss-code-bg: #f5f5f5;
+    --swiss-accent: #000000;
+    --color-body: #ffffff;
+    --color-text: #000000;
+  }
+
+  .markup pre,
+  .markup code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
