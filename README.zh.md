@@ -13,7 +13,7 @@
 [![Themes](https://img.shields.io/badge/themes-light%20%C2%B7%20dark%20%C2%B7%20auto-256786)](#主题变体)
 [![CSS](https://img.shields.io/badge/CSS-zero%20dependencies-6b7076)](#构建与定制)
 
-[效果预览](#效果预览) · [安装指南](INSTALL.md) · [Issues](https://github.com/chius-me/forgejo-theme-swiss/issues)
+[效果预览](#效果预览) · [安装指南](INSTALL.md) · [Issues](https://github.com/chius-n/forgejo-theme-swiss/issues)
 
 </div>
 
@@ -52,9 +52,9 @@
 ```sh
 mkdir -p /var/lib/forgejo/custom/public/assets/css
 cd /var/lib/forgejo/custom/public/assets/css
-curl -fsSLO https://raw.githubusercontent.com/chius-me/forgejo-theme-swiss/main/theme-swiss-auto.css
-curl -fsSLO https://raw.githubusercontent.com/chius-me/forgejo-theme-swiss/main/theme-swiss-light.css
-curl -fsSLO https://raw.githubusercontent.com/chius-me/forgejo-theme-swiss/main/theme-swiss-dark.css
+curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-auto.css
+curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-light.css
+curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-dark.css
 ```
 
 在 `app.ini` 中启用并重启 Forgejo：

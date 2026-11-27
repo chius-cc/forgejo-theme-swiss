@@ -13,13 +13,13 @@ const FONT_IMPORT =
 const LIGHT_HEADER = `/*!
  * Swiss Light (Paper) — Paper Monospace Swiss Theme for Forgejo 17.x
  * Aesthetic: Warm paper (#fdfcfb), slate blue (#256786), brick mark (#b24c37)
- * License: MIT (https://github.com/chius-me/forgejo-theme-swiss)
+ * License: MIT (https://github.com/chius-n/forgejo-theme-swiss)
  */\n\n`;
 
 const DARK_HEADER = `/*!
  * Swiss Dark (Slate) — Paper Monospace Swiss Theme for Forgejo 17.x
  * Aesthetic: Slate night (#202530), warm apricot (#eab38b), light mist (#e1e5ed)
- * License: MIT (https://github.com/chius-me/forgejo-theme-swiss)
+ * License: MIT (https://github.com/chius-n/forgejo-theme-swiss)
  */\n\n`;
 
 const AUTO_CONTENT = `/*!
