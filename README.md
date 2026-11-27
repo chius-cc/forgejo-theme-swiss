@@ -13,7 +13,7 @@ Paper Monospace Swiss theme family (Light, Dark, Auto) for [Forgejo](https://for
 [![Themes](https://img.shields.io/badge/themes-light%20%C2%B7%20dark%20%C2%B7%20auto-256786)](#variants)
 [![CSS](https://img.shields.io/badge/CSS-zero%20dependencies-6b7076)](#build--customize)
 
-[Preview](#preview) · [Install Guide](INSTALL.md) · [Issues](https://github.com/chius-n/forgejo-theme-swiss/issues)
+[Preview](#preview) · [Install Guide](INSTALL.md) · [Issues](https://github.com/chius-cc/forgejo-theme-swiss/issues)
 
 </div>
 
@@ -52,9 +52,9 @@ Copy all three stylesheets into Forgejo's `custom/public/assets/css/` directory 
 ```sh
 mkdir -p /var/lib/forgejo/custom/public/assets/css
 cd /var/lib/forgejo/custom/public/assets/css
-curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-auto.css
-curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-light.css
-curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-dark.css
+curl -fsSLO https://raw.githubusercontent.com/chius-cc/forgejo-theme-swiss/main/theme-swiss-auto.css
+curl -fsSLO https://raw.githubusercontent.com/chius-cc/forgejo-theme-swiss/main/theme-swiss-light.css
+curl -fsSLO https://raw.githubusercontent.com/chius-cc/forgejo-theme-swiss/main/theme-swiss-dark.css
 ```
 
 Enable the themes in `app.ini` and restart Forgejo:

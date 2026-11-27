@@ -16,9 +16,9 @@ Place the three CSS files inside Forgejo's `custom/public/assets/css/` directory
 sudo mkdir -p /var/lib/forgejo/custom/public/assets/css
 cd /var/lib/forgejo/custom/public/assets/css
 
-sudo curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-auto.css
-sudo curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-light.css
-sudo curl -fsSLO https://raw.githubusercontent.com/chius-n/forgejo-theme-swiss/main/theme-swiss-dark.css
+sudo curl -fsSLO https://raw.githubusercontent.com/chius-cc/forgejo-theme-swiss/main/theme-swiss-auto.css
+sudo curl -fsSLO https://raw.githubusercontent.com/chius-cc/forgejo-theme-swiss/main/theme-swiss-light.css
+sudo curl -fsSLO https://raw.githubusercontent.com/chius-cc/forgejo-theme-swiss/main/theme-swiss-dark.css
 sudo chown -R forgejo:forgejo /var/lib/forgejo/custom/public/assets/css
 ```
 
